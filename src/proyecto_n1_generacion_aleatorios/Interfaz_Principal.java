@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_n1_generacion_aleatorios;
 
-/**
- *
- * @author samu9
- */
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+
 public class Interfaz_Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfaz_Principal
      */
+    
     public Interfaz_Principal() {
         initComponents();
     }
@@ -184,40 +180,39 @@ public class Interfaz_Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_m, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
-                        .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel5))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(247, 247, 247)
-                                .addComponent(jButton_aditivo, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField_X_1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField_X_2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(114, 114, 114)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField_X_3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                        .addGap(247, 247, 247)
+                        .addComponent(jButton_aditivo, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_X_1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_X_2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_m, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_X_3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_X_4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
+                        .addComponent(jTextField_X_4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,9 +235,8 @@ public class Interfaz_Principal extends javax.swing.JFrame {
                     .addComponent(jTextField_X_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_aditivo)
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Método congruencial aditivo", jPanel3);
@@ -318,11 +312,69 @@ public class Interfaz_Principal extends javax.swing.JFrame {
     private void jTextField_X0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_X0ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_X0ActionPerformed
-
+ArrayList<Integer> Valores = new ArrayList<>();
     private void jButton_aditivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aditivoActionPerformed
-        // TODO add your handling code here:
+        int m = 0, valor;
+        boolean band = false;
+            String X1 = jTextField_X_1.getText();
+            String X2 = jTextField_X_2.getText();
+            String X3 = jTextField_X_3.getText();
+            String X4 = jTextField_X_4.getText();
+            String m_text = jTextField_m.getText();
+            
+            try {
+                Valores.add(Integer.parseInt(X1));
+                Valores.add(Integer.parseInt(X2));
+                Valores.add(Integer.parseInt(X3));
+                Valores.add(Integer.parseInt(X4));
+                m = Integer.parseInt(m_text);
+            } 
+            catch (NumberFormatException e) {
+               JOptionPane.showMessageDialog(null,"Error con los valores introducidos");
+            }
+        int j = 0, k = 3, indice = Valores.size()+1;
+        while(band == false){
+           valor = (Valores.get(j) + Valores.get(k))%m;
+           if(comprobador(valor) == true){
+               band = true;  
+           }
+           Valores.add(valor);
+           indice++;
+           j++;
+           k++;
+           
+        }
+        
+        Integer Matriz [][] = new Integer [Valores.size()][4];
+        
+        for(int i = 0; i < Valores.size();i++){
+            Matriz[i][0] = i;
+            Matriz[i][3] = Valores.get(i);
+            
+        }
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            Matriz,
+            new String [] {
+                "Iteración", "Expresión", "Expresión reemplazada", "Resultado"
+            }
+        ));
+        
+        
+        
     }//GEN-LAST:event_jButton_aditivoActionPerformed
-
+    
+    public boolean comprobador(int valor_actual){
+        boolean bandera = false;
+        for(int i = 0; i < Valores.size();i++){
+            if(Valores.get(i) == valor_actual){
+                bandera = true;
+            } 
+        } 
+        return bandera;
+    }
+    
+    
     private void jButton_aditivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aditivo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_aditivo1ActionPerformed
