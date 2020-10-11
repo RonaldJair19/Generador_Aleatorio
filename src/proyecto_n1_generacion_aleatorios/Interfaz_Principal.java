@@ -1,11 +1,14 @@
 package proyecto_n1_generacion_aleatorios;
 
+import static java.lang.Math.pow;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
 public class Interfaz_Principal extends javax.swing.JFrame {
-
+ArrayList<Integer> Valores = new ArrayList<>();
+ArrayList<Integer> Valores_Cuadrado = new ArrayList<>();
+ArrayList<Integer> Valores_Semillas = new ArrayList<>();
     /**
      * Creates new form Interfaz_Principal
      */
@@ -30,6 +33,11 @@ public class Interfaz_Principal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField_X0 = new javax.swing.JTextField();
         jButton_aditivo1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable_cuadrado_medio = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField_Iteraciones = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -45,6 +53,7 @@ public class Interfaz_Principal extends javax.swing.JFrame {
         jButton_aditivo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton_Limpiar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -69,7 +78,7 @@ public class Interfaz_Principal extends javax.swing.JFrame {
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("X0");
+        jLabel12.setText("Cantidad de iteraciones:");
 
         jTextField_X0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +94,37 @@ public class Interfaz_Principal extends javax.swing.JFrame {
             }
         });
 
+        jTable_cuadrado_medio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Iteracion", "Semilla", "Resultado"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable_cuadrado_medio);
+
+        jLabel13.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel13.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("X0");
+
+        jTextField_Iteraciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_IteracionesActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,17 +132,25 @@ public class Interfaz_Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(311, 311, 311)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(jButton_aditivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(247, 247, 247)
-                        .addComponent(jLabel11)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton_aditivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(116, 116, 116)
+                                .addComponent(jLabel12)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField_Iteraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,10 +160,15 @@ public class Interfaz_Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField_Iteraciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton_aditivo1)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_aditivo1)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Método del cuadrado medio", jPanel1);
@@ -135,22 +188,22 @@ public class Interfaz_Principal extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("X1");
+        jLabel7.setText("X0");
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("X2");
+        jLabel8.setText("X1");
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("X3");
+        jLabel9.setText("X2");
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Roboto Slab", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("X4");
+        jLabel10.setText("X3");
 
         jButton_aditivo.setFont(new java.awt.Font("Roboto Slab", 1, 14)); // NOI18N
         jButton_aditivo.setText("Calcular");
@@ -173,18 +226,20 @@ public class Interfaz_Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton_Limpiar.setText("Limpiar");
+        jButton_Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_LimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(jButton_aditivo, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(241, 241, 241)
+                .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -213,6 +268,12 @@ public class Interfaz_Principal extends javax.swing.JFrame {
                         .addComponent(jTextField_X_4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_aditivo, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jButton_Limpiar)
+                .addGap(238, 238, 238))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +295,9 @@ public class Interfaz_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jTextField_X_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton_aditivo)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_aditivo)
+                    .addComponent(jButton_Limpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -312,7 +375,7 @@ public class Interfaz_Principal extends javax.swing.JFrame {
     private void jTextField_X0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_X0ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_X0ActionPerformed
-ArrayList<Integer> Valores = new ArrayList<>();
+
     private void jButton_aditivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aditivoActionPerformed
         int m = 0, valor;
         boolean band = false;
@@ -345,11 +408,17 @@ ArrayList<Integer> Valores = new ArrayList<>();
            
         }
         
-        Integer Matriz [][] = new Integer [Valores.size()][4];
-        
+        String Matriz [][] = new String [Valores.size()][4];
+        int cont = 0, cont1 = 3;
         for(int i = 0; i < Valores.size();i++){
-            Matriz[i][0] = i;
-            Matriz[i][3] = Valores.get(i);
+            Matriz[i][0] = String.valueOf(i);
+            if(i >=3 ){
+                Matriz[i][2] = "("+String.valueOf(Valores.get(cont))+ "+ " + String.valueOf(Valores.get(cont1)) +") mod "+String.valueOf(m);
+                Matriz[i][1] = "(X"+String.valueOf(cont)+"+ X" +String.valueOf(cont1)+") mod m "; 
+                cont++;
+                cont1++;
+            }
+            Matriz[i][3] = String.valueOf(Valores.get(i));
             
         }
         
@@ -376,8 +445,107 @@ ArrayList<Integer> Valores = new ArrayList<>();
     
     
     private void jButton_aditivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aditivo1ActionPerformed
-        // TODO add your handling code here:
+        int interaciones = 0, cont_semilla = 0,valor_semilla = 0, valor_resultado;
+        String semilla;
+        semilla = jTextField_X0.getText();
+         try {
+                interaciones = Integer.parseInt(jTextField_Iteraciones.getText());
+            } 
+            catch (NumberFormatException e) {
+               JOptionPane.showMessageDialog(null,"Error, ingrese la cantidad de iteraciones.");
+            }
+         if (semilla.length() != 4){
+             JOptionPane.showMessageDialog(null,"Error, solo se aceptan números de 4 dígitos");
+         }
+         else{
+             //cont_semilla = semilla.length();
+             try {
+               valor_semilla = Integer.parseInt(semilla);
+            } 
+            catch (NumberFormatException e) {
+               JOptionPane.showMessageDialog(null,"Error, debe introducir digitos numericos");
+            }
+         }
+         Valores_Semillas.add(valor_semilla);
+         valor_resultado = (int) pow(valor_semilla,2);
+         Valores_Cuadrado.add(valor_resultado);
+         String nueva_semilla;
+         int longitud_resultado;
+         for(int i = 0; i < interaciones; i++){
+             nueva_semilla = null;
+             longitud_resultado = Integer.toString(Valores_Cuadrado.get(i)).length();
+             
+             if( longitud_resultado == 7){
+                 nueva_semilla = String.valueOf(Valores_Cuadrado.get(i));
+                 Valores_Semillas.add(Integer.parseInt(nueva_semilla.substring(1,5)));
+             }
+             if(longitud_resultado == 8){
+                nueva_semilla = String.valueOf(Valores_Cuadrado.get(i));
+                Valores_Semillas.add(Integer.parseInt(nueva_semilla.substring(2,6)));
+             }
+             //JOptionPane.showMessageDialog(null,"Cadena semilla: " + nueva_semilla);
+             //JOptionPane.showMessageDialog(null,"Semilla " + Valores_Semillas.get(i));
+             Valores_Cuadrado.add((int) pow(Valores_Semillas.get(i+1),2));
+             
+         }
+         
+        Integer Matriz_2 [][] = new Integer [Valores_Cuadrado.size()][3];
+        
+        for(int i = 0; i < Valores_Cuadrado.size() ;i++){
+            Matriz_2[i][0] = i;
+            Matriz_2[i][1] = Valores_Semillas.get(i);
+            Matriz_2[i][2] = Valores_Cuadrado.get(i);
+        }
+        jTable_cuadrado_medio.setModel(new javax.swing.table.DefaultTableModel(
+            Matriz_2,
+            new String [] {
+                "Iteracion", "Semilla", "Resultado"
+            }
+        ));
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jButton_aditivo1ActionPerformed
+
+    private void jTextField_IteracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_IteracionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_IteracionesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Valores_Semillas.clear();
+        Valores_Cuadrado.clear();
+        jTextField_X0.setText(null);
+        jTextField_Iteraciones.setText(null);
+        jTable_cuadrado_medio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+            },
+            new String [] {
+                "Iteracion", "Semilla", "Resultado"
+            }
+        ));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
+        Valores.clear();
+        jTextField_X_1.setText(null);
+        jTextField_X_2.setText(null);
+        jTextField_X_3.setText(null);
+        jTextField_X_4.setText(null);
+        jTextField_m.setText(null);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+            },
+            new String [] {
+                "Iteración", "Expresión", "Expresión reemplazada", "Resultado"
+            }
+        ));
+        
+    }//GEN-LAST:event_jButton_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,12 +583,15 @@ ArrayList<Integer> Valores = new ArrayList<>();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_Limpiar;
     private javax.swing.JButton jButton_aditivo;
     private javax.swing.JButton jButton_aditivo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -433,8 +604,11 @@ ArrayList<Integer> Valores = new ArrayList<>();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_cuadrado_medio;
+    private javax.swing.JTextField jTextField_Iteraciones;
     private javax.swing.JTextField jTextField_X0;
     private javax.swing.JTextField jTextField_X_1;
     private javax.swing.JTextField jTextField_X_2;
